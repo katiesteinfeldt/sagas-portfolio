@@ -25,6 +25,7 @@ getProjects = () => {
 
   // Renders the entire app on the DOM
   render() {
+    console.log(this.props.projects);
     return (
       <div className="App">
         <p>Empty Page</p>

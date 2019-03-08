@@ -20,7 +20,7 @@ function* rootSaga() {
 function* fetchProjects(action) {
     try {
         const getProjectsResponse = yield axios.get('/portfolio');
-        yield dispatch({type: 'SET PROJECTS', payload: getProjectsResponse.data});
+        yield dispatch({type: 'SET_PROJECTS', payload: getProjectsResponse.data});
     }
     catch (error) {
         console.log('error with fetching projects from the server', error);
