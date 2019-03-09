@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
+import ProjectList from '../ProjectList/ProjectList';
+import Header from '../Header/Header';
 
 class App extends Component {
 
@@ -29,6 +31,8 @@ getProjects = () => {
     return (
       <div className="App">
         <p>Empty Page</p>
+        <Header />
+        <ProjectList />
       </div>
     );
   }
