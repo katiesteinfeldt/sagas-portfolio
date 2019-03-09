@@ -8,7 +8,7 @@ import { CardContent, CardActions, Divider } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Typo from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
 const styles = {
     card: {
@@ -69,10 +69,10 @@ class ProjectItem extends Component {
                     </CardContent>
                     <CardActions>
                         <Router>
-                            <Button><a target="_blank" href={websiteDisplay}>Website</a></Button>
-                        </Router>
+                            <Button><a href={websiteDisplay}>Website</a></Button>
+                        </Router> 
                         <Router>
-                            <Button><a target="_blank" href={githubDisplay}>Github</a></Button>
+                            <Button><a href={githubDisplay}>Github</a></Button>
                         </Router>
                     </CardActions>
                 </Card>
