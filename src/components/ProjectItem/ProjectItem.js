@@ -7,6 +7,8 @@ import Card from '@material-ui/core/Card';
 import { CardContent, CardActions, Divider } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Typo from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const styles = {
     card: {
@@ -32,10 +34,10 @@ class ProjectItem extends Component {
         }
 
         if (this.props.project.thumbnail === 'public/images/empty-image.png') {
-            thumbnailDisplay = <img alt="Empty" src="images/empty-image.png"/>
+            thumbnailDisplay = <img alt="Empty" src="images/empty-image.png" />
         }
-        else if (this.props.project.thumbnail === 'public/images/garden.png'){
-            thumbnailDisplay = <img alt="Saga Garden Project" src="images/garden.png"/>
+        else if (this.props.project.thumbnail === 'public/images/garden.png') {
+            thumbnailDisplay = <img alt="Saga Garden Project" src="images/garden.png" />
         }
         else {
             thumbnailDisplay = null;
@@ -45,7 +47,7 @@ class ProjectItem extends Component {
             websiteDisplay = null;
         }
         else {
-            websiteDisplay = this.props.project.website;
+            websiteDisplay = null;
         }
 
         if (this.props.project.github === '') {
@@ -58,13 +60,21 @@ class ProjectItem extends Component {
         return (
             <Grid>
                 <Card className={this.props.classes.card}>
-                {descriptionDisplay}
-                <br />
-                {thumbnailDisplay}
-                <br />
-                {websiteDisplay}
-                <br/>
-                {githubDisplay}
+                    <CardContent>
+                        <Typo>{this.props.project.name}</Typo>
+                        <Divider />
+                        <Typo>{descriptionDisplay}</Typo>
+                        <br />
+                        {thumbnailDisplay}
+                    </CardContent>
+                    <CardActions>
+                        <Router>
+                            <Button><a target="_blank" href={websiteDisplay}>Website</a></Button>
+                        </Router>
+                        <Router>
+                            <Button><a target="_blank" href={githubDisplay}>Github</a></Button>
+                        </Router>
+                    </CardActions>
                 </Card>
             </Grid>
         );
