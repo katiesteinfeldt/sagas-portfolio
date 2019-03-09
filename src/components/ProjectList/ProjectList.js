@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './ProjectList.css';
 
 class ProjectList extends Component {
 
@@ -14,8 +15,8 @@ class ProjectList extends Component {
 
     render() {
         return (
-            <div>
-                HELLO!
+            <div className="projectList">
+                <div>HELLO!</div>
             </div>
         );
     }

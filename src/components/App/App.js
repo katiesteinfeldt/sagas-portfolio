@@ -29,8 +29,7 @@ getProjects = () => {
   render() {
     console.log(this.props.projects);
     return (
-      <div className="App">
-        <p>Empty Page</p>
+      <div>
         <Header />
         <ProjectList />
       </div>
