@@ -1,35 +1,27 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import './Header.css';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
+
+const styles = {
+    header: {
+        textAlign: 'center',
+        padding: '40px',
+        margin: 'auto',
+        marginTop: '20px',
+        backgroundColor: '#607D8B',
+        color: 'white',
+    },
+}
 
 class Header extends Component {
-
-
-
-
-
-
-
-
-
 
     render() {
         return (
             <div>
-                <header className="header">Header component!</header>
+                <Typography className={this.props.classes.header} variant="h2">Katie Mangan</Typography>
             </div>
-        );
+        )
     }
 }
 
-
-
-
-
-
-
-const mapStateToProps = (reduxState) => {
-    return reduxState;
-}
-
-export default (connect(mapStateToProps)(Header));
+export default withStyles(styles)(Header);

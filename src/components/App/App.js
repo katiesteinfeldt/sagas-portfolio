@@ -15,16 +15,6 @@ getProjects = () => {
   this.props.dispatch({type: 'FETCH_PROJECTS'});
 }
 
-
-
-
-
-
-
-
-
-
-
   // Renders the entire app on the DOM
   render() {
     console.log(this.props.projects);
@@ -36,11 +26,6 @@ getProjects = () => {
     );
   }
 }
-
-
-
-
-
 
 
 const mapStateToProps = (reduxState) => {
