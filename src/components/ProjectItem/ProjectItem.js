@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './ProjectItem.css';
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+// import Button from '@material-ui/core/Button';
+import { CardContent, CardActions, Divider } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import Typo from '@material-ui/core/Typography';
 
+const styles = {
+    card: {
+        minWidth: 275,
+        maxWidth: 350,
+        margin: 22,
+    }
+}
 
 class ProjectItem extends Component {
 
@@ -17,11 +31,14 @@ class ProjectItem extends Component {
             descriptionDisplay = this.props.project.description;
         }
 
-        if (this.props.project.thumbnail === '') {
-            thumbnailDisplay = null;
+        if (this.props.project.thumbnail === 'public/images/empty-image.png') {
+            thumbnailDisplay = <img alt="Empty" src="images/empty-image.png"/>
+        }
+        else if (this.props.project.thumbnail === 'public/images/garden.png'){
+            thumbnailDisplay = <img alt="Saga Garden Project" src="images/garden.png"/>
         }
         else {
-            thumbnailDisplay = this.props.project.thumbnail;
+            thumbnailDisplay = null;
         }
 
         if (this.props.project.website === '') {
@@ -39,7 +56,8 @@ class ProjectItem extends Component {
         }
 
         return (
-            <div>
+            <Grid>
+                <Card className={this.props.classes.card}>
                 {descriptionDisplay}
                 <br />
                 {thumbnailDisplay}
@@ -47,7 +65,8 @@ class ProjectItem extends Component {
                 {websiteDisplay}
                 <br/>
                 {githubDisplay}
-            </div>
+                </Card>
+            </Grid>
         );
     }
 }
@@ -60,4 +79,4 @@ const mapStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default (connect(mapStateToProps)(ProjectItem));
+export default withStyles(styles)(connect(mapStateToProps)(ProjectItem));
